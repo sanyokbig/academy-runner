@@ -1,12 +1,13 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
+import moment from 'moment';
 
 import './pilot.html';
 
 Template.pilot.helpers({
-    isOwner() {
-	return this.owner === Meteor.userId();
-    },
+    momentDate(date, format) {
+        return moment(date).format(format);
+    }
 });
 
 Template.pilot.events({

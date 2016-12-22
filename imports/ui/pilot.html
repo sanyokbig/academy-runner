@@ -1,16 +1,14 @@
 <template name="pilot">
   <div class="pilot-row">
-    <div class="pilot-cell">{{pilotId}}</div>
     <div class="pilot-cell">{{pilotName}}</div>
     <div class="pilot-cell">{{location}}</div>
-    <div class="pilot-cell">{{shipType}}</div>
-    <div class="pilot-cell">{{joined}}</div>
-    <div class="pilot-cell">{{logon}}</div>
-    <div class="pilot-cell">{{logoff}}</div>
-    <div class="pilot-cell">{{kills}}</div>
-    <div class="pilot-cell">{{losses}}</div>
-    <div class="pilot-cell">{{klratio}}</div>
-    <div class="pilot-cell">{{points}}</div>
-    <div class="pilot-cell">{{income}}</div>
+    <div class="pilot-cell">{{shiptype}}</div>
+    <div class="pilot-cell">{{momentDate joined 'DD/MM/YY HH:mm'}}</div>
+    <div class="pilot-cell">{{momentDate logoff 'DD/MM/YY HH:mm'}}</div>
+    <!--<div class="pilot-cell">{{kills}}</div>-->
+    <!--<div class="pilot-cell">{{losses}}</div>-->
+    <!--<div class="pilot-cell">{{klratio}}</div>-->
+    <!--<div class="pilot-cell">{{points}}</div>-->
+    <!--<div class="pilot-cell">{{income}}</div>-->
   </div>
 </template>

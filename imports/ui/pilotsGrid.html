@@ -1,14 +1,18 @@
 <template name="pilotsGrid">
     <div class="grid-header">
-	<input type="button" class="read" value="Read">
-	<input type="button" class="drop" value="Drop">
-	<div class="grid-sorters">
-	    <div class="">Sort Me</div>
-	</div>
+        <input type="button" class="read" value="Read">
+        <input type="button" class="drop" value="Drop">
+        <div class="grid-sorters">
+            <div class="pilotName">Pilot Name</div>
+            <div class="location">System</div>
+            <div class="shiptype">Shiptype</div>
+            <div class="joined">Joined</div>
+            <div class="logoff">Logoff</div>
+        </div>
     </div>
     <div class="grid-body">
-	{{#each pilots}}
-	    {{> pilot}}
-	{{/each}}
+        {{#each pilots}}
+            {{> pilot}}
+        {{/each}}
     </div>
 </template>
