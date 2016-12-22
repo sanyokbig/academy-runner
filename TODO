@@ -1,0 +1,30 @@
+Corps
+    corpID
+    corpName
+    ownerID
+    ownerName
+    lastScan
+    apiKeyID
+    apiKeyVCode
+
+Pilots
+    pilotID
+    pilotName
+    mainID
+    mainName
+    corpID
+    corpName
+    joined
+    logon
+    logoff
+    location
+    shiptype
+    kills
+    losses
+    klratio
+    points
+    income
+
+Kills
+
+Income
