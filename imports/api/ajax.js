@@ -22,10 +22,10 @@ Meteor.methods({
             let pilots = xml.eveapi.result[0].rowset[0].row;
             for (let i = 0; i < pilots.length; i++) {
                 let pilot = pilots[i].$,
-                    entry = Pilots.findOne({pilotId: +pilot.characterID});
+                    entry = Pilots.findOne({pilotID: +pilot.characterID});
                 if (entry) {
                     Pilots.update({
-                        pilotId: pilot.charactedID
+                        pilotID: pilot.charactedID
                     }, {
                         $set: {
                             location: pilot.location ? pilot.location : 'Неизвестно',
@@ -37,7 +37,7 @@ Meteor.methods({
                     })
                 } else {
                     Pilots.insert({
-                        pilotId: +pilot.characterID,
+                        pilotID: +pilot.characterID,
                         pilotName: pilot.name,
                         location: pilot.location ? pilot.location : 'Неизвестно',
                         shiptype: pilot.shipType,

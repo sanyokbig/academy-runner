@@ -11,7 +11,7 @@ export const Pilots = new Mongo.Collection('pilots');
 const Schemas = Schemas || {};
 
 Schemas.Pilot = new SimpleSchema({
-    pilotId: {
+    pilotID: {
         type: Number,
         label: 'Pilot Id',
         index: true,
@@ -21,13 +21,21 @@ Schemas.Pilot = new SimpleSchema({
         type: String,
         label: 'Pilot Name'
     },
-    location: {
-        type: String,
-        label: 'Location'
+    mainID: {
+        type: Number,
+        label: 'Main Id'
     },
-    shiptype: {
+    mainName: {
         type: String,
-        label: 'Ship Type'
+        label: 'Main Name'
+    },
+    corpID: {
+        type: Number,
+        label: 'Corp Id'
+    },
+    corpName: {
+        type: String,
+        label: 'Corp Name'
     },
     joined: {
         type: Date,
@@ -40,6 +48,14 @@ Schemas.Pilot = new SimpleSchema({
     logoff: {
         type: Date,
         label: 'Last Logoff'
+    },
+    location: {
+        type: String,
+        label: 'Location'
+    },
+    shiptype: {
+        type: String,
+        label: 'Ship Type'
     },
     kills: {
         type: Number,
@@ -74,16 +90,16 @@ if (Meteor.isServer) {
 }
 
 Meteor.methods({
-    'pilots.remove'(pilotId) {
-        check(pilotId, String);
-        console.log(pilotId);
-        const pilot = Pilots.findOne(pilotId);
-        if (pilot.owner !== this.userId) {
+    'pilots.remove'(pilotID) {
+        check(pilotID, String);
+        console.log(pilotID);
+        const pilot = Pilots.findOne(pilotID);
+        if (!this.userId) {
             // If the pilot is private, make sure only the owner can delete it
             throw new Meteor.Error('not-authorized');
         }
 
-        Pilots.remove(pilotId);
+        Pilots.remove(pilotID);
     },
     'pilots.drop'() {
         Pilots.drop();

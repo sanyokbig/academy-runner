@@ -1,16 +1,11 @@
 <body>
-    <div class="container">
-	<header>
-	    <h1>Academy Runner ({{incompleteCount}})</h1>
-	    
-	    {{> loginButtons}}
+<div class="container">
+    <header>
+        <h1></h1>
 
-	    {{#if currentUser}}
-	    <form class="new-pilot">
-		<input type="text" name="text" placeholder="Type to add new tasks" />
-	    </form>
-	    {{/if}}
-	</header>
-	{{> pilotsGrid}}
-    </div>
+        {{> loginButtons}}
+
+    </header>
+    {{> pilotsGrid}}
+</div>
 </body>

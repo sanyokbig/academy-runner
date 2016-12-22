@@ -21,29 +21,12 @@ Template.pilotsGrid.helpers({
         // Otherwise, return all of the pilots
         return Pilots.find({}, {sort: {createdAt: -1}});
     },
-    incompleteCount() {
+    pilotsCount() {
         return Pilots.find({checked: {$ne: true}}).count();
     },
 });
 
 Template.pilotsGrid.events({
-    'submit .new-pilot'(event) {
-        // Prevent default browser form submit
-        event.preventDefault();
-
-        // Get value from form element
-        const target = event.target;
-        const text = target.text.value;
-
-        // Insert a pilot into the collection
-        Meteor.call('pilots.insert', text);
-
-        // Clear form
-        target.text.value = '';
-    },
-    'change .hide-completed input'(event, instance) {
-        instance.state.set('hideCompleted', event.target.checked);
-    },
     'click .read'(event, instance) {
         Meteor.call('ajax.updatePilots', '5629956', '2R1BGtO434Z9ygT0WbnHBa6Sly6l7wYkLZoGvg0iEhGuAbdrtWl4phvfHN9NYNvv')
     },
