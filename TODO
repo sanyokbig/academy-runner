@@ -83,3 +83,10 @@ Events
     corpID
     date
     message
+
+
+https://login.eveonline.com/oauth/authorize?
+response_type=code
+&client_id=da12f178c7f840a6a4ad072dd6b21455
+&redirect_uri=http://fleetcom.space/_oauth/eveonline?close
+&scope=fleetRead&state=eyJsb2dpblN0eWxlIjoicG9wdXAiLCJjcmVkZW50aWFsVG9rZW4iOiJqVEF3Y2ZlcEQ0c2JNMzc2aCIsImlzQ29yZG92YSI6ZmFsc2V9

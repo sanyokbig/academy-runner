@@ -6,6 +6,8 @@ import { Template } from 'meteor/templating';
 import './pilotsGrid.js';
 import './body.html';
 
+import './eveLogin.js';
+
 
 Template.body.helpers({
 
