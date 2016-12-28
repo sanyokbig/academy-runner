@@ -5,9 +5,9 @@
 import {Meteor} from 'meteor/meteor';
 import {Template} from 'meteor/templating';
 
-import './eveLogin.html';
+import './login.html';
 
-Template.eveLogin.events({
+Template.login.events({
     'click .login'(e){
         e.preventDefault();
         let uri = 'https://login.eveonline.com/oauth/authorize/',

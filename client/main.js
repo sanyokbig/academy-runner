@@ -1,3 +1,2 @@
-import '../imports/startup/accounts-config.js';
 import '../imports/ui/body.js';
-import '../imports/routes/client.js'
+import '../imports/routes/routes.js'

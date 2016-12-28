@@ -18,8 +18,6 @@ es5-shim@4.6.15                # ECMAScript 5 compatibility for older browsers.
 ecmascript@0.6.1              # Enable ECMAScript2015+ syntax in app code
 
 reactive-dict@1.1.8
-accounts-ui@1.1.9
-accounts-password@1.3.3
 practicalmeteor:mocha@2.1.1-rc.1
 shell-server
 http
@@ -29,3 +27,4 @@ aldeed:collection2-core
 aldeed:schema-index
 stylus
 kadira:flow-router
+accounts-base
