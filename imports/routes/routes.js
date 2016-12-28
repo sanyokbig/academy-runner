@@ -12,7 +12,6 @@ FlowRouter.route('/',{
 FlowRouter.route('/oauth', {
     name: 'Lists.show',
     action(params, queryParams) {
-        console.log(params, queryParams);
         Meteor.call('eve.getToken', queryParams, function(){close()});
     }
 });

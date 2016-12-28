@@ -96,8 +96,8 @@ Meteor.methods({
                 console.log(error)
             } else {
                 content = JSON.parse(response.content);
-                let user = Meteor.users.findOne({name: content.CharacterName});
-                let doc = {
+                let user = Meteor.users.findOne({name: content.CharacterName}),
+                    doc = {
                         name: content.CharacterName,
                         access_token,
                         refresh_token,
@@ -106,7 +106,9 @@ Meteor.methods({
                 if(user) {
                     Meteor.users.update({
                         name: content.CharacterName
-                    },{$set: doc});
+                    },{
+                        $set: doc
+                    });
                 } else {
                     Meteor.users.insert(doc);
                 }
