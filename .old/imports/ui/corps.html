@@ -1,0 +1,14 @@
+<template name="corps">
+    {{#if currentUser}}
+        <form class="new-corp">
+            <input type="text" placeholder="ID..." name="id">
+            <input type="text" placeholder="Verification Code..." name="vcode">
+            <button>Добавить корпорацию</button>
+        </form>
+        <select name="corps" class="corpslist">
+            {{#each getCorps}}
+                <option value="{{vcode}}">{{id}}</option>
+            {{/each}}
+        </select>
+    {{/if}}
+</template>

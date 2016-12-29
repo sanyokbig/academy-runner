@@ -1,0 +1,15 @@
+<body>
+<div class="container">
+    <header>
+        {{> login}}
+        {{#if currentUser}}
+            {{> corps}}
+        {{/if}}
+    </header>
+    {{#if currentUser}}
+        {{> pilotsGrid}}
+    {{else}}
+        Login, please.
+    {{/if}}
+</div>
+</body>

@@ -1,0 +1,15 @@
+<template name="pilot">
+    <div class="pilot-row">
+        <div class="pilot-cell">{{pilotName}}</div>
+        <div class="pilot-cell">{{location}}</div>
+        <div class="pilot-cell">{{shiptype}}</div>
+        <div class="pilot-cell">{{momentDate joined 'DD/MM/YY HH:mm'}}</div>
+        <div class="pilot-cell">{{momentDate logoff 'DD/MM/YY HH:mm'}}</div>
+        <!--<div class="pilot-cell">{{kills}}</div>-->
+        <!--<div class="pilot-cell">{{losses}}</div>-->
+        <!--<div class="pilot-cell">{{klratio}}</div>-->
+        <!--<div class="pilot-cell">{{points}}</div>-->
+        <!--<div class="pilot-cell">{{income}}</div>-->
+        <input type="button" value="Удалить пилота" class="remove">
+    </div>
+</template>
