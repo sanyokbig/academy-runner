@@ -12,5 +12,8 @@ Template.navbar.events({
                 console.log(err);
             }
         });
+    },
+    'click .logoff'(){
+        Meteor.logout();
     }
-})
+});

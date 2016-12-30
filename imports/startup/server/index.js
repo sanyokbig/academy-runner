@@ -4,5 +4,4 @@
 
 import './eve-configure.js';
 
-import { Corps } from '../../api/corps/corps.js';
-import '../../api/corps/methods.js';
+import './register-api.js';

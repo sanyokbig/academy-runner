@@ -24,3 +24,5 @@ aldeed:collection2-core
 kadira:flow-router
 stylus
 service-configuration
+peerlibrary:xml2js
+http

@@ -6,5 +6,9 @@ import {Meteor} from 'meteor/meteor';
 import {Corps} from '../corps.js';
 
 Meteor.publish('corps', function corpsPublication() {
-    return Corps.find({owner: Meteor.userId()});
+    if(this.userId) {
+        return Corps.find({
+            owner: Meteor.users.findOne(this.userId).services.eve.character.id
+        });
+    }
 });

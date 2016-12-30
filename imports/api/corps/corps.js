@@ -7,7 +7,7 @@ export const Corps = new Mongo.Collection('corps');
 const Schemas = Schemas || {};
 
 Schemas.Corp = new SimpleSchema({
-    corpId: {
+    corpID: {
         type: Number,
         label: 'Corporation ID'
     },

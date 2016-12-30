@@ -9,6 +9,7 @@
     <div class="login-info">
         {{#if currentUser}}
             {{currentUser.profile.name}}
+            <button class="logoff">logoff</button>
         {{else}}
             <button class="login">login</button>
         {{/if}}

@@ -1,19 +1,26 @@
 import {Meteor} from 'meteor/meteor';
 import {HTTP} from 'meteor/http';
 
-Meteor.methods({
-    'ajax.getApiInfo'(keyID,vCode){
-        //Возвращаем данные ключа c API сервера евы и записываем их
+//5629956 - 2R1BGtO434Z9ygT0WbnHBa6Sly6l7wYkLZoGvg0iEhGuAbdrtWl4phvfHN9NYNvv
+//5628472 - CK79QwXMhv9hfDS49yrljZBrTtmNlI33WZkyy5uzJQWOlLs0OJ7IsgqZlIRPMclj
 
+export const Ajax = Ajax || {};
+
+Ajax.getApiInfo = (keyID, vCode)=>{
+    return new Promise((resolve,reject)=>{
         HTTP.get('https://api.eveonline.com/account/APIKeyInfo.xml.aspx', {
             params: {keyID,vCode}
-        }, function(error,response){
-            if(error) {
-                console.log(error.data.error_description);
+        },(err,res)=>{
+            if(err) {
+                reject(err)
             } else {
-                console.log(response);
+                resolve(xml2js.parseStringSync(res.content));
             }
         });
+    });
+};
+
+Meteor.methods({
 
         // HTTP.get('https://api.eveonline.com/corp/MemberTracking.xml.aspx', {
         //         params: {
@@ -22,7 +29,6 @@ Meteor.methods({
         //             vCode: vcode
         //         }
         //     }, function (error, response) {
-
         // $.ajax({
         //     url: 'https://api.eveonline.com/account/APIKeyInfo.xml.aspx',
         //     type: 'GET',
@@ -50,8 +56,4 @@ Meteor.methods({
         //         callback();
         //     }).bind(this)
         // });
-    },
-    'ajax.getCorpInfo'(){
-
-    }
 })
