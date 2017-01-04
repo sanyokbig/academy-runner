@@ -1,3 +1,10 @@
 <template name="pilots">
-    pilots
+    <div class="controls">
+        <button class="refresh">
+            Обновить информацию
+        </button>
+    </div>
+    {{#each pilots}}
+        {{> pilot}}
+    {{/each}}
 </template>

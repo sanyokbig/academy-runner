@@ -6,7 +6,7 @@ import {HTTP} from 'meteor/http';
 
 export const Ajax = Ajax || {};
 
-Ajax.getApiInfo = (keyID, vCode)=>{
+Ajax.getKeyInfo = (keyID, vCode)=>{
     return new Promise((resolve,reject)=>{
         HTTP.get('https://api.eveonline.com/account/APIKeyInfo.xml.aspx', {
             params: {keyID,vCode}
@@ -14,46 +14,31 @@ Ajax.getApiInfo = (keyID, vCode)=>{
             if(err) {
                 reject(err)
             } else {
+                let parsed = xml2js.parseStringSync(res.content);
+                resolve(parsed);
+            }
+        });
+    });
+};
+
+Ajax.getPilots = (keyID, vCode)=>{
+    return new Promise((resolve, reject)=>{
+        HTTP.get('https://api.eveonline.com/corp/MemberTracking.xml.aspx',{
+            params: {keyID,vCode,extended:true}
+        },(err,res)=>{
+            if(err) {
+                reject(err);
+            } else {
                 resolve(xml2js.parseStringSync(res.content));
             }
         });
     });
 };
 
-Meteor.methods({
+Ajax.getKills = ()=>{
 
-        // HTTP.get('https://api.eveonline.com/corp/MemberTracking.xml.aspx', {
-        //         params: {
-        //             extended: true,
-        //             keyID: id,
-        //             vCode: vcode
-        //         }
-        //     }, function (error, response) {
-        // $.ajax({
-        //     url: 'https://api.eveonline.com/account/APIKeyInfo.xml.aspx',
-        //     type: 'GET',
-        //     data: {keyID:this.id, vCode:this.vcode},
-        //     success: (function(v){
-        //         //Ключ рабочий, читаем
-        //         var keyinfo=v.getElementsByTagName("key")[0];
-        //         this.type=$(keyinfo).attr('type');
-        //         this.mask=$(keyinfo).attr('accessMask');
-        //         this.expires=$(keyinfo).attr('expires');
-        //         this.success=true;
-        //         if(this.type=="Corporation") {
-        //             var row=v.getElementsByTagName("row")[0];
-        //             this.corpid=$(row).attr('corporationID');
-        //             this.corpname=$(row).attr('corporationName');
-        //         }
-        //         callback();
-        //     }).bind(this),
-        //     error: (function(jqXHR, textStatus, errorThrown) {
-        //         //Ключ неверный
-        //         var errorinfo=jqXHR.responseXML.getElementsByTagName("error")[0];
-        //         this.success=false;
-        //         this.error=$(errorinfo).attr('code');
-        //         this.errortext=$(errorinfo).text();
-        //         callback();
-        //     }).bind(this)
-        // });
-})
+};
+
+Ajax.getIncome = ()=>{
+
+}

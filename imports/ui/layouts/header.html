@@ -1,0 +1,25 @@
+<template name="header">
+    <div class="navbar">
+        <div><a href="/">Arun</a></div>
+        <div><a href="/pilots">Pilots</a></div>
+        <div><a href="/corps">Corps</a></div>
+        <div><a href="/kills">Kills</a></div>
+        <div><a href="/income">Income</a></div>
+    </div>
+    <div class="corp-select">
+        <select id="corp-select">
+            <option value="0">Select corp...</option>
+            {{#each corps}}
+                <option value="{{corpID}}">{{corpName}}</option>
+            {{/each}}
+        </select>
+    </div>
+    <div class="login-info">
+        {{#if currentUser}}
+            {{currentUser.profile.name}}
+            <button class="logoff">logoff</button>
+        {{else}}
+            <button class="login">login</button>
+        {{/if}}
+    </div>
+</template>

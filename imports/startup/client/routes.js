@@ -7,9 +7,9 @@ import { BlazeLayout } from 'meteor/kadira:blaze-layout';
 
 import '../../ui/layouts/main.html'
 
-import '../../ui/layouts/navbar.js'
+import '../../ui/layouts/header.js'
 
-import '../../ui/layouts/pilots.html'
+import '../../ui/layouts/pilots.js'
 import '../../ui/layouts/corps.js'
 import '../../ui/layouts/kills.html'
 import '../../ui/layouts/income.html'

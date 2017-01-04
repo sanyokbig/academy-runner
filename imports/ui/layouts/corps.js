@@ -3,7 +3,7 @@ import {Templating} from 'meteor/templating';
 
 import './corps.html';
 
-import './corp.html';
+import '../components/corp.js';
 
 import {Corps} from '../../api/corps/corps.js';
 import '../../api/corps/methods.js';

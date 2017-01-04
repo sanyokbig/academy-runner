@@ -27,6 +27,10 @@ Schemas.Corp = new SimpleSchema({
         type: String,
         label: 'Api Key VCode'
     },
+    keyValid: {
+        type: Boolean,
+        label: 'key Valid'
+    },
     lastScan: {
         type: Date,
         label: 'Last Scan'
