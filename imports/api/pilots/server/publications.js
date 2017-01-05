@@ -11,7 +11,6 @@ Meteor.publish('pilots', function pilotsPublication() {
             }).forEach((corp) => {
                 myCorps[myCorps.length] = corp.corpID
             });
-            console.log(myCorps);
             return Pilots.find({
                 corpID: {$in: myCorps}
             });

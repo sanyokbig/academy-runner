@@ -13,6 +13,7 @@ Meteor.methods({
                 vCode=corp.vCode;
             Meteor.call('corps.api-check', keyID, vCode);
             Meteor.call('pilots.import', corpID);
+            Meteor.call('income.import', corpID);
         });
     },
     'corps.api-check'(keyID, vCode){
@@ -41,6 +42,9 @@ Meteor.methods({
                 console.log(error);
                 throw new Meteor.Error(error);
             });
+    },
+    'corps.gettax'(){
+
     }
 });
 

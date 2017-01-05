@@ -10,12 +10,9 @@ Meteor.methods({
         if(!Meteor.user()){
             throw new Meteor.Error('not-authorized');
         }
-        if(this.isSimulation) {
-
-        } else {
+        if(!this.isSimulation) {
             return Ajax.getKeyInfo(keyID, vCode)
                 .then(response => {
-
                     response = response.eveapi.result[0].key[0];
                     let keyInfo = response.$,
                         charInfo = response.rowset[0].row[0].$;

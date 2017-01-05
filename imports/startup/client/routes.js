@@ -12,7 +12,7 @@ import '../../ui/layouts/header.js'
 import '../../ui/layouts/pilots.js'
 import '../../ui/layouts/corps.js'
 import '../../ui/layouts/kills.html'
-import '../../ui/layouts/income.html'
+import '../../ui/layouts/income.js'
 
 FlowRouter.route('/',{
     name: 'main',

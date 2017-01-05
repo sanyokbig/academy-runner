@@ -23,7 +23,5 @@ Template.pilots.helpers({
 });
 
 Template.pilots.events({
-    'click .refresh'(){
-        Meteor.call('pilots.import',$('.corp-select select').val());
-    }
-})
+
+});

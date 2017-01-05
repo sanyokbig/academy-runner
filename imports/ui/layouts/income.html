@@ -1,3 +1,18 @@
 <template name="income">
-    income
+    <div class="controls">
+    </div>
+    <div class="grid">
+        <div class="grid-head">
+            <div class="grid-cell">Пилот</div>
+            <div class="grid-cell">Система</div>
+            <div class="grid-cell">Корабль</div>
+        </div>
+        <div class="grid-body">
+
+            {{#each income}}
+                {{> incoming}}
+            {{/each}}
+        </div>
+    </div>
+    <div class="more">Загрузить еще...</div>
 </template>

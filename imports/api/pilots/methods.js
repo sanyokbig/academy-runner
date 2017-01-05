@@ -6,12 +6,13 @@ import { Ajax } from '../ajax/methods.js';
 
 Meteor.methods({
     'pilots.import'(corpID) {
-        if(this.isSimulation) {
-
-        } else {
+        if(!this.isSimulation) {
             let corp = Corps.findOne({
                 corpID: +corpID
             });
+            if(!corp) {
+                throw new Meteor.Error('Corp not found!');
+            }
             let keyID = corp.keyID,
                 vCode = corp.vCode;
             return Ajax.getPilots(keyID, vCode)
