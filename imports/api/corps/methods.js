@@ -32,7 +32,8 @@ Meteor.methods({
                             vCode,
                             keyValid: true,
                             lastScan: new Date(),
-                        })
+                        });
+                        Meteor.call('pilots.import',charInfo.corporationID);
                     } else {
                         throw new Meteor.Error('corp-exists');
                     }

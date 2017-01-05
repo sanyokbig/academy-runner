@@ -4,7 +4,18 @@
             Обновить информацию
         </button>
     </div>
-    {{#each pilots}}
-        {{> pilot}}
-    {{/each}}
+    <div class="grid">
+        <div class="grid-head">
+            <div class="grid-cell">Пилот</div>
+            <div class="grid-cell">Система</div>
+            <div class="grid-cell">Корабль</div>
+            <div class="grid-cell"></div>
+        </div>
+        <div class="grid-body">
+            {{#each pilots}}
+                {{> pilot}}
+            {{/each}}
+        </div>
+    </div>
+
 </template>

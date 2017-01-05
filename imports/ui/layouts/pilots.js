@@ -13,12 +13,17 @@ Meteor.subscribe('pilots');
 
 Template.pilots.helpers({
     'pilots'(){
-        return Pilots.find({corpID: +Session.get('current-corp')});
+        let curCorp = +Session.get('current-corp'),
+            selector = {};
+        if(curCorp) {
+            selector.corpID = curCorp;
+        }
+        return Pilots.find(selector);
     }
 });
 
 Template.pilots.events({
     'click .refresh'(){
-        Meteor.call('pilots.import',$('#corp-select').val());
+        Meteor.call('pilots.import',$('.corp-select select').val());
     }
 })

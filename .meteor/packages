@@ -27,3 +27,4 @@ service-configuration
 peerlibrary:xml2js
 http
 session
+peerlibrary:reactive-publish

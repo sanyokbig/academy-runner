@@ -27,11 +27,10 @@ Template.header.events({
     'click .logoff'(){
         Meteor.logout();
     },
-    'change .corp-select'(e){
-        Session.set('current-corp',$('#corp-select').val());
+    'change select'(e){
+        Session.set('current-corp',$(e.target).val());
     }
 });
 Template.header.onRendered(()=>{
-    console.log($('#corp-select').val());
-    Session.set('current-corp',$('#corp-select').val());
+    Session.set('current-corp',$('.corp-select select').val());
 });
