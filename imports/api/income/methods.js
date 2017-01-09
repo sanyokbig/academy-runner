@@ -15,7 +15,7 @@ Meteor.methods({
             }
             let keyID = corp.keyID,
                 vCode = corp.vCode;
-            return Ajax.getIncome(keyID, vCode)
+            return Ajax.getIncome(keyID, vCode, corpID)
                 .then(response => {
                     return response;
                 })

@@ -15,6 +15,10 @@ Schemas.Incoming = new SimpleSchema({
         type: Number,
         label: 'Pilot ID'
     },
+    corpID :{
+        type: Number,
+        label: 'Corp ID'
+    },
     amount: {
         type: Number,
         label: 'Amount'

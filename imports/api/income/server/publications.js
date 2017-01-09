@@ -5,7 +5,8 @@ Meteor.publish('income', function incomePublication() {
     this.autorun(()=>{
         if (this.userId) {
             return Income.find({},{
-                limit: 500
+                limit: 50,
+                sort: {date: -1}
             });
         }
     });

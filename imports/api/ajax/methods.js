@@ -40,7 +40,7 @@ Ajax.getKills = ()=>{
 
 };
 
-Ajax.getIncomePage = (params)=>{
+Ajax.getIncomePage = (params, corpID)=>{
     return new Promise((resolve, reject)=>{
         HTTP.get('https://api.eveonline.com/corp/WalletJournal.xml.aspx',{
             params
@@ -50,32 +50,38 @@ Ajax.getIncomePage = (params)=>{
             } else {
                 let inclist = xml2js.parseStringSync(res.content).eveapi.result[0].rowset[0].row,
                     lastID=0, done;
-                for(let inc of inclist) {
-                    inc = inc.$;
-                    if(inc.refTypeID == '85') {
-                        if(!Income.findOne({refID: +inc.refID})) {
-                            //Запись свежая, добавляем
-                            lastID = +inc.refID;
-                            Income.insert({
-                                refID: +inc.refID,
-                                pilotID: +inc.ownerID2,
-                                amount: +inc.amount,
-                                date: new Date(inc.date)
-                            });
-                        } else {
-                            //Запись уже есть, вырубаемся
-                            done=true;
+                if(inclist) {
+                    for (let inc of inclist) {
+                        inc = inc.$;
+                        if (inc.refTypeID == '85') {
+                            if (!Income.findOne({refID: +inc.refID})) {
+                                //Запись свежая, добавляем
+                                lastID = +inc.refID;
+                                console.log('INSERT: ' + inc.refID);
+                                Income.insert({
+                                    refID: +inc.refID,
+                                    pilotID: +inc.ownerID2,
+                                    corpID: +corpID,
+                                    amount: +inc.amount,
+                                    date: new Date(inc.date)
+                                });
+                            } else {
+                                //Запись уже есть, вырубаемся
+                                done = true;
+                            }
                         }
                     }
+                } else {
+                    done=true;
                 }
                 if(done) {
-                    console.log('Enough');
+                    console.log('Enough!');
                     resolve();
                 } else {
                     params.fromID = lastID;
                     console.log('Moar '+lastID);
                     new Promise(()=>{
-                        Ajax.getIncomePage(params);
+                        Ajax.getIncomePage(params, corpID);
                     }).then(resolve());
                 }
             }
@@ -83,7 +89,7 @@ Ajax.getIncomePage = (params)=>{
     });
 };
 
-Ajax.getIncome = (keyID, vCode)=>{
+Ajax.getIncome = (keyID, vCode,corpID)=>{
     return new Promise((resolve, reject)=>{
         let params = {
             keyID,
@@ -92,6 +98,6 @@ Ajax.getIncome = (keyID, vCode)=>{
             rowCount: 100,
             fromID: 0
         };
-        Ajax.getIncomePage(params);
+        Ajax.getIncomePage(params, corpID);
     })
 };

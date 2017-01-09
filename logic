@@ -69,12 +69,14 @@ Kills
     victimName
     victimCorpId
     victimCorpName
+    points
     attackerList[attID, attCorpID]
 
 Income
     incomeID
-    date
     pilotID
+    corpID
+    date
     amount
 
 Events
